@@ -1,6 +1,6 @@
 # 计算机研0 | 学习笔记
 
-本仓库系统整理计算机研0自学期间的学习笔记，包括吴恩达机器学习系列课程的核心内容，并持续扩展深度学习等前沿领域的学习笔记。
+本仓库系统整理计算机研0自学期间的学习笔记，包括python基础、numpy和pandas、吴恩达机器学习系列课程的核心内容，并持续扩展深度学习等前沿领域的学习笔记。
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)		![Last Commit](https://img.shields.io/github/last-commit/XIAOBOCXY/Machine-Learning-Notes)  		![ML-Notes](https://img.shields.io/badge/笔记-持续更新中-brightgreen)
 
