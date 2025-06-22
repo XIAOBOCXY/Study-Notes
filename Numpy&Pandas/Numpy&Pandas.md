@@ -291,6 +291,62 @@ print(a) #[ 5  1  2 44]
 print(b) #[5 1 2 3]
 ```
 
+#### 1.9 刷题知识点补充
+
+```python
+# 输出提取后的numpy数组以及数组元素类型
+
+# 使用 pandas 读取再转换（适用于混合数据）
+import pandas as pd
+df = pd.read_csv("Coder.csv", header=None, dtype=float)
+arr = df.values[0]
+print(arr)
+print(arr.dtype)
+
+# 使用numpy.loadtxt（适用于纯数值数据）
+import numpy as np
+arr = np.loadtxt("Coder.csv", delimiter=",")  # 适用于纯数值 CSV
+# data = np.loadtxt('Nowcoder.csv', delimiter=',', dtype='int') # 将所有数据转换成int
+print(arr)
+print(arr.dtype)
+
+# 使用numpy.genfromtxt（适用于带缺失值的 CSV）
+import numpy as np
+arr = np.genfromtxt("Coder.csv", delimiter=",")  # skip_header=1, 跳过表头
+print(arr)
+print(arr.dtype)
+
+# 使用 np.fliplr(data) 函数对数据进行左右翻转
+# 使用 df.diagonal()获取翻转后数据的对角线元素
+data = np.fliplr(data)
+data = data.diagonal()
+
+#π
+np.pi
+
+# 用 NumPy 的 round 函数对数组 data 中的每个元素进行四舍五入，并保留 3 位小数
+np.round(data,3))
+
+# a的b次方
+np.power(a,b)
+
+# 将 NumPy 数组 data 扁平化（展开为一维数组），并按照 列优先顺序（Fortran 风格） 进行排列，默认行为（order='C'）：按行优先顺序（C 风格）展开
+print(data.flatten(order= 'F'))
+
+# 使用 NumPy 的字符串操作函数 capitalize()，将数组 narray 中的每个字符串元素首字母大写，其余字母小写，并返回处理后的新数组 df 
+df = np.char.capitalize(df)
+
+# 使用 NumPy 的 median() 函数计算 DataFrame df 沿着 第 0 轴（列方向） 的中位数
+np.median(df,axis=0)
+
+# 要求：直接输出降序排名的结果，记录在一维numpy数组中。
+# np.dtype()用于定义 NumPy 数组或结构化数组的数据类型
+type = np.dtype([('name','S10'),('sales',float)])
+df = np.loadtxt('Shop.csv',delimiter=',',dtype=type)
+df = np.sort(df,order = 'sales') # 排序
+print(df[::-1]) #a:b:c  开始结束步长，-1即逆序
+```
+
 ### 02 pandas
 
 #### &#x20;2.1 基本介绍
@@ -940,7 +996,7 @@ data.plot()
 plt.show()
 ```
 
-![](images/image-1.png)
+![](images/image-2.png)
 
 ```python
 data = pd.DataFrame(np.random.randn(1000, 4), index=np.arange(1000), columns=list("ABCD"))
@@ -949,7 +1005,7 @@ data.plot()
 plt.show()
 ```
 
-![](images/image-2.png)
+![](images/image-1.png)
 
 ```sql
 #'bar', 'hist', 'box', 'kde', 'area', scatter', hexbin', 'pie'
@@ -1018,5 +1074,23 @@ df.drop_duplicates(inplace=True) #inplace=True直接修改原数据
 # format="%Y-%m-%d" 指定输入字符串的日期格式为 年-月-日
 # 将 DataFrame 中的 'Last_submission_time' 列转换为 Pandas 的 datetime 类型，并指定日期格式为 "YYYY-MM-DD"
 df['Last_submission_time']=pd.to_datetime(df['Last_submission_time'],format="%Y-%m-%d")
+
+# print(df.columns.to_list()) 打印 DataFrame 的所有列名，以列表形式输出
+# 输出示例：['列名1', '列名2', '列名3']
+print(df.columns.to_list())
+
+# print(df.shape[0]) 打印 DataFrame 的行数
+# df.shape 返回一个元组 (行数, 列数),[0] 取第一个元素即行数
+# 输出示例：100（表示有100行数据）
+print(df.shape[0])
+
+# df.groupby('shop_name')：按照 'shop_name' 列中的不同店铺名称对数据进行分组。
+# ['price']：选择 'price' 列（通常是订单价格）作为要聚合的列。
+# .agg(['sum'])：对每个店铺的 'price' 列应用求和操作，计算每个店铺的总销售额。
+# 结果是一个新的 DataFrame，索引是店铺名称，列名为 'sum'（总销售额）。
+df = df.groupby('shop_name')['price'].agg(['sum'])
+
+# df.sort_values(by='sum', ascending=False)：按照 'sum' 列（总销售额）的值进行降序排序。
+print(df.sort_values(by = 'sum',ascending=False))
 ```
 

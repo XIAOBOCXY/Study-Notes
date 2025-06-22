@@ -211,7 +211,7 @@ __all__
 #只能导入这个列表中的元素
 ```
 
-![](images/image.png)
+![](images/image-13.png)
 
 #### 9.8 自定义python包
 
@@ -307,7 +307,7 @@ line.set_global_opts(
 line.render()
 ```
 
-![](images/image-13.png)
+![](images/image-9.png)
 
 #### 10.5 练习（数据处理+绘制折线图）
 
@@ -382,7 +382,7 @@ f_jp.close()
 f_in.close()
 ```
 
-![](images/image-11.png)
+![](images/image-10.png)
 
 ### 11 数据可视化-地图
 
@@ -424,7 +424,7 @@ map.set_global_opts(
 map.render()
 ```
 
-![](images/image-10.png)
+![](images/image-11.png)
 
 #### 11.2 练习（全国疫情地图）
 
@@ -511,7 +511,7 @@ bar.reversal_axis()
 bar.render("基础柱状图.html")
 ```
 
-![](images/image-9.png)
+![](images/image-8.png)
 
 #### 12.2 基础时间柱状图
 
@@ -558,7 +558,7 @@ timeline.render("基础时间线柱状图.html")
 
 ![](images/image-6.png)
 
-![](images/image-8.png)
+![](images/image-7.png)
 
 #### 12.3 GDP动态柱状图绘制
 
@@ -642,7 +642,7 @@ timeline.add_schema(
 timeline.render("1960-2019全球GDP前8国家.html")
 ```
 
-![](images/image-7.png)
+![](images/image-5.png)
 
 ## 第二阶段
 
@@ -1020,7 +1020,7 @@ bar.set_global_opts(
 bar.render("每日销售额柱状图.html")
 ```
 
-![](images/image-3.png)
+![](images/image-4.png)
 
 ### 02 SQL
 
@@ -1304,7 +1304,7 @@ print(rdd2.collect()) #['我', '爱', '学', '习', '不', '你', '不', '爱', 
 
 接受一个处理函数，对数据进行两两计算
 
-![](images/image-5.png)
+![](images/image-3.png)
 
 ```python
 from pyspark import SparkConf, SparkContext
@@ -1475,7 +1475,7 @@ rdd2.saveAsTextFile("D:/output2")
 rdd3.saveAsTextFile("D:/output3")
 ```
 
-![](images/image-4.png)
+![](images/image.png)
 
 ### 02 高阶技巧
 
@@ -1718,7 +1718,7 @@ socket_server.close()
 # 请输入你要和客户端回复的消息：exit
 ```
 
-![](images/image-1.png)
+![](images/image-2.png)
 
 #### 2.6 socket客户端开发
 
@@ -1810,7 +1810,7 @@ print(result) #['python', 'python', 'python'] 找不到返回空列表
 
 #### 2.8 正则表达式-元字符匹配
 
-![](images/image-2.png)
+![](images/image-1.png)
 
 ```python
 import re
